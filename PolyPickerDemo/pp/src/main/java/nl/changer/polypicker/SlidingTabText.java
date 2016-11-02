@@ -63,10 +63,10 @@ public class SlidingTabText extends SlidingTabLayout {
                 }
             }
 
-            if (viewPager.getAdapter().getCount() != mTabText.length) {
+            /*if (viewPager.getAdapter().getCount() != mTabText.length) {
                 throw new IllegalArgumentException("Titles and View pager count mismatch. Expected " + viewPager.getChildCount()
                  + " Found " + mTabText.length);
-            }
+            }*/
             populateTabStrip();
         }
     }

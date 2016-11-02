@@ -12,7 +12,7 @@ public class PagerAdapter2Fragments extends FragmentStatePagerAdapter {
     /**
      * Number of tabs to be show. Change this value when a tab is added/removed
      */
-    private static final int TAB_COUNT = 2;
+    private static final int TAB_COUNT = 1;
     private static final int TAB_CAMERA = 0;
     private static final int TAB_GALLERY = 1;
 
