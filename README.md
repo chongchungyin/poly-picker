@@ -304,6 +304,8 @@ Alternative projects
 Release Notes
 ============
 
+## test
+
 ## v1.0.22
 
 * Add Danish translations
