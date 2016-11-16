@@ -116,6 +116,22 @@ public class ImagePickerActivity extends AppCompatActivity {
         mSlidingTabText.setViewPager(mViewPager);
     }
 
+    /**
+     * Get max photo allowed
+     * @return
+     */
+    public int getMaxPhotoAllowed(){
+        return mConfig.getSelectionLimit();
+    }
+
+    /**
+     * Check whether the activity holding max photos
+     * @return
+     */
+    public boolean isMaxPhotoAllowed(){
+        return mSelectedImages.size() == mConfig.getSelectionLimit();
+    }
+
     public boolean addImage(Image image) {
 
         if (mSelectedImages == null) {

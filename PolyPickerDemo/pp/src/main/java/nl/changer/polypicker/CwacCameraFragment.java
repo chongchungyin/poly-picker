@@ -107,6 +107,13 @@ public class CwacCameraFragment extends CameraFragment {
 
         @Override
         public void onClick(View view) {
+
+            if(((ImagePickerActivity) getActivity()).isMaxPhotoAllowed()){
+                int allowedPhoto = ((ImagePickerActivity)getActivity()).getMaxPhotoAllowed();
+                Toast.makeText(getActivity(), getActivity().getString(R.string.n_images_selected, allowedPhoto), Toast.LENGTH_SHORT).show();
+              return;
+            }
+
             if (mTakePictureBtn.isEnabled()) {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
