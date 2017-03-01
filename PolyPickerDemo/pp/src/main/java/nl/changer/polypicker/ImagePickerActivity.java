@@ -35,6 +35,11 @@ public class ImagePickerActivity extends AppCompatActivity {
      */
     public static final String EXTRA_IMAGE_URIS = "nl.changer.changer.nl.polypicker.extra.selected_image_uris";
 
+    /**
+     * Returns the parcelled dcim name with this extra.
+     */
+    public static final String EXTRA_DCIM_NAME = "nl.changer.changer.nl.polypicker.extra.selected_dcim_name";
+
     private Set<Image> mSelectedImages;
     private LinearLayout mSelectedImagesContainer;
     protected TextView mSelectedImageEmptyMessage;
@@ -196,13 +201,17 @@ public class ImagePickerActivity extends AppCompatActivity {
             if (view.getId() == R.id.pp__btn_done) {
 
                 Uri[] uris = new Uri[mSelectedImages.size()];
+                String[] dcimNames = new String[mSelectedImages.size()];
                 int i = 0;
                 for (Image img : mSelectedImages) {
-                    uris[i++] = img.mUri;
+                    uris[i] = img.mUri;
+                    dcimNames[i] = img.mDCIMPhotoName;
+                    i++;
                 }
 
                 Intent intent = new Intent();
                 intent.putExtra(EXTRA_IMAGE_URIS, uris);
+                intent.putExtra(EXTRA_DCIM_NAME, dcimNames);
                 setResult(Activity.RESULT_OK, intent);
             } else if (view.getId() == R.id.pp__btn_cancel) {
                 setResult(Activity.RESULT_CANCELED);

@@ -186,7 +186,7 @@ public class CwacCameraFragment extends CameraFragment {
                 });
             } else {
                 Uri contentUri = Uri.parse(path);
-                final Image image = getImageFromContentUri(contentUri);
+                final Image image = getImageFromContentUri(contentUri,getPhotoFilename());
 
                 // run the media scanner service
                 // MediaScannerConnection.scanFile(getActivity(), new String[]{path}, new String[]{"image/jpeg"}, null);
@@ -205,7 +205,7 @@ public class CwacCameraFragment extends CameraFragment {
             }
         }
 
-        public Image getImageFromContentUri(Uri contentUri) {
+        public Image getImageFromContentUri(Uri contentUri, String originalPhotoName) {
             String[] cols = {MediaStore.Images.Media.DATA, MediaStore.Images.ImageColumns.ORIENTATION};
 
             // can post image
@@ -229,7 +229,7 @@ public class CwacCameraFragment extends CameraFragment {
                 }
             }
 
-            return new Image(uri, orientation);
+            return new Image(uri, orientation, originalPhotoName);
         }
 
         @Override
